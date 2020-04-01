@@ -163,6 +163,7 @@ body {
     position: absolute;
     bottom: 25%;
     left: 30px;
+    cursor: pointer;
 }
 
 .card .cart-icon i {
@@ -179,6 +180,7 @@ body {
     position: absolute;
     bottom: 25%;
     right: 30px;
+    cursor: pointer;
 }
 
 .card .view-icon i {

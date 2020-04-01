@@ -1,58 +1,75 @@
 $(document).ready(function () {
-    var product = [{
+    var product = [
+
+        // NEW COLLECTIONS
+        {
             id: 1,
             name: 'Card title',
-            url: './assets/img/product_images/cyma_fashion_style_20200307_112555_0.jpg',
-            categoryA: 'deckA',
+            url: './assets/img/product_images/@capitalhaykayphotography (14).JPG',
+            categoryA: 'new-collections',
             price: 5000
 
         },
         {
             id: 2,
             name: 'Card title',
-            url: './assets/img/product_images/cyma_fashion_style_20200307_112614_0.jpg',
-            categoryA: 'deckA',
+            url: './assets/img/product_images/@capitalhaykayphotography (18).JPG',
+            categoryA: 'new-collections',
             price: 5000
 
         },
         {
             id: 3,
             name: 'Card title',
-            url: './assets/img/product_images/cyma_fashion_style_20200307_114001_0.jpg',
-            categoryA: 'deckA',
+            url: './assets/img/product_images/@capitalhaykayphotography (8).JPG',
+            categoryA: 'new-collections',
             price: 5000
 
         },
         {
             id: 4,
             name: 'Card title',
-            url: './assets/img/product_images/cyma_fashion_style_20200307_114119_0.jpg',
-            categoryA: 'deckB',
+            url: './assets/img/product_images/@capitalhaykayphotography (9).JPG',
+            categoryA: 'new-collections',
             price: 5000
 
         },
+
+        // HOT COLLECTIONS
         {
             id: 5,
             name: 'Card title',
-            url: './assets/img/product_images/cyma_fashion_style_20200307_113946_0.jpg',
-            categoryA: 'deckB',
-            categoryB: '',
+            url: './assets/img/product_images/cyma_fashion_style_20200307_112341_0.jpg',
+            categoryA: 'hot-collections',
             price: 5000
 
         },
         {
             id: 6,
             name: 'Card title',
-            url: './assets/img/product_images/cyma_fashion_style_20200307_114038_0.jpg',
-            categoryA: 'deckB',
-            categoryB: '',
+            url: './assets/img/product_images/cyma_fashion_style_20200307_112438_0.jpg',
+            categoryA: 'hot-collections',
             price: 5000
 
         },
 
-        
+        {
+            id: 7,
+            name: 'Card title',
+            url: './assets/img/product_images/cyma_fashion_style_20200307_112521_0.jpg',
+            categoryA: 'hot-collections',
+            price: 5000
 
-    ];
+        },
+        {
+            id: 8,
+            name: 'Card title',
+            url: './assets/img/product_images/cyma_fashion_style_20200307_112544_0.jpg',
+            categoryA: 'hot-collections',
+            price: 5000
+
+        },
+    ]
 
     var template = (parentElement, imgUrl, productName, productPrice) => {
         var cardDiv = document.createElement('div');
@@ -98,21 +115,22 @@ $(document).ready(function () {
         parentElement.appendChild(cardDiv);
     };
 
-    // FOR DECK A (HOMEPAGE)
-    var deckA = document.getElementById('deck-A');
-    var homePageProducts = product.filter(x => x.categoryA === 'deckA');
-    // console.log(homePageProducts);
-    for (let i = 0; i < homePageProducts.length; i++) {
-        template(deckA, `${homePageProducts[i].url}`, `${homePageProducts[i].name}`, `$ ${homePageProducts[i].price}`);
+    // FOR CAROUSEL A (COLLECTIONS)
+    var carouselA = document.getElementById('carousel-A');
+    var productGallery = product.filter(x => x.categoryA === 'hot-collections');
+    // console.log(productGallery);
+    for (let i = 0; i < productGallery.length; i++) {
+        template(carouselA, `${productGallery[i].url}`, `${productGallery[i].name}`, `$ ${productGallery[i].price}`);
     }
 
-    // FOR DECK B (HOMEPAGE)
-    var deckB = document.getElementById('deck-B');
-    var homePageProducts = product.filter(x => x.categoryA === 'deckB');
-    // console.log(homePageProducts);
-    for (let i = 0; i < homePageProducts.length; i++) {
-        template(deckB, `${homePageProducts[i].url}`, `${homePageProducts[i].name}`, `$ ${homePageProducts[i].price}`);
+    // FOR CAROUSEL B (COLLECTIONS)
+    var carouselB = document.getElementById('carousel-B');
+    var productGallery = product.filter(x => x.categoryA === 'new-collections');
+    console.log(productGallery);
+    for (let i = 0; i < productGallery.length; i++) {
+        template(carouselB, `${productGallery[i].url}`, `${productGallery[i].name}`, `$ ${productGallery[i].price}`);
     }
+
 
 
 
