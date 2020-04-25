@@ -27,7 +27,29 @@
         <div class="container">
             <div class="row pre-header-items">
                 <div class="col-md-6 btn-col">
-                    <a href="#" class="btn btn-outline-primary"> Book Appointment</a>
+                    <a href="" class="btn btn-outline-primary" id="appointment-modal" data-toggle="modal"
+                        data-target="#exampleModalCenter"> Book Appointment</a>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Private Consultations & Appointments</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                For private consultations and appointments, please give us a call: <b>+234000000000</b>.<br/>
+                                We are here to serve you better.
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-6 contact-col">
                     <h6 class="contact-number">Call us now: +234000000000</h6>
@@ -47,9 +69,10 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto mr-3">
                         <li class="nav-item">
-                            <a class="nav-link" href="product-gallery.html">Product Gallery <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="product-gallery.html">Product Gallery <span
+                                    class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="collections.html">Collections</a>
@@ -62,22 +85,47 @@
                         </li>
 
                     </ul>
+                    <div class="dropdown ">
+                        <a href="#" class="icons-nav-link dropdown-toggle" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span
+                                class="badge badge-light" id="cart-length">0</span>
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div id="cart-list">
+
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class="row text-center" id="cart-footer">
+                                <div class="col-md-12">
+                                    <a href="#" class="clear-cart__btn btn btn-outline-primary" id="clear-cart">Clear
+                                        Cart</a>
+                                </div>
+
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class="row text-center" id="cart-footer">
+                                <div class="col-md-12">
+                                    <a href="checkout.html" class="clear-cart__btn btn btn-outline-primary">Checkout</a>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
                     <a href="#" class="icons-nav-link"><i class="fas fa-search"></i></a>
                     <a href="#" class="icons-nav-link"><i class="fas fa-user"></i></a>
-                    <a href="#" class="icons-nav-link"><span class="badge badge-light">0</span><i
-                            class="fas fa-shopping-cart"></i> </a>
-                    
+
+
+
+
                 </div>
             </div>
 
         </nav>
 
     </div>
-    <!-- 
-    <section id="hero-slider">
 
-
-    </section> -->
 
     <div class="slider">
         <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-ride="carousel">
@@ -125,15 +173,129 @@
         <div class="product-gallery mt-5">
             <h3 class="gallery-title text-center">Product Gallery</h3>
             <hr class="horizontal-rule mb-5" />
-            <div class="container ">
-                <div class="row mt-3">
+            <div class="container products ">
+                <div class="row mt-3 product-list">
                     <div class="card-deck" id="deck-A">
-                        
+                        <div class="card" id="card-A1">
+                            <img src="./assets/img/product_images/cyma_fashion_style_20200307_112555_0.jpg"
+                                class="card-img-top" alt="Product">
+                            <a href="#">
+                                <div class="cart-icon text-center">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                            </a>
+                            <a href="" id="view-linkA1">
+                                <div class="view-icon text-center">
+                                    <i class="far fa-eye"></i>
+                                </div>
+                            </a>
+
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">$ 5000</p>
+                            </div>
+                        </div>
+                        <div class="card" id="card-A2">
+                            <img src="./assets/img/product_images/cyma_fashion_style_20200307_112614_0.jpg"
+                                class="card-img-top" alt="...">
+                            <a href="#">
+                                <div class="cart-icon text-center">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                            </a>
+                            <a href="#" id="view-linkA2">
+                                <div class="view-icon text-center">
+                                    <i class="far fa-eye"></i>
+                                </div>
+                            </a>
+
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">$ 5000</p>
+                            </div>
+                        </div>
+                        <div class="card" id="card-A3">
+                            <img src="./assets/img/product_images/cyma_fashion_style_20200307_114001_0.jpg"
+                                class="card-img-top" alt="...">
+                            <a href="#">
+                                <div class="cart-icon text-center">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                            </a>
+                            <a href="#" id="view-linkA3">
+                                <div class="view-icon text-center">
+                                    <i class="far fa-eye"></i>
+                                </div>
+                            </a>
+
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">$ 5000</p>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-                <div class="row mt-3 mb-5">
+                <div class="row mt-3 mb-5 product-list">
                     <div class="card-deck" id="deck-B">
-                      
+                        <div class="card" id="card-B1">
+                            <img src="./assets/img/product_images/cyma_fashion_style_20200307_114119_0.jpg"
+                                class="card-img-top" alt="...">
+                            <a href="#">
+                                <div class="cart-icon text-center">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                            </a>
+                            <a href="#" id="view-linkB1">
+                                <div class="view-icon text-center">
+                                    <i class="far fa-eye"></i>
+                                </div>
+                            </a>
+
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">$ 5000</p>
+                            </div>
+                        </div>
+                        <div class="card" id="card-B2">
+                            <img src="./assets/img/product_images/cyma_fashion_style_20200307_113946_0.jpg"
+                                class="card-img-top" alt="...">
+                            <a href="#">
+                                <div class="cart-icon text-center">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                            </a>
+                            <a href="#" id="view-linkB2">
+                                <div class="view-icon text-center">
+                                    <i class="far fa-eye"></i>
+                                </div>
+                            </a>
+
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">$ 5000</p>
+                            </div>
+                        </div>
+                        <div class="card" id="card-B3">
+                            <img src="./assets/img/product_images/cyma_fashion_style_20200307_114038_0.jpg"
+                                class="card-img-top" alt="...">
+                            <a href="#">
+                                <div class="cart-icon text-center">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                            </a>
+                            <a href="#" id="view-linkB3">
+                                <div class="view-icon text-center">
+                                    <i class="far fa-eye"></i>
+                                </div>
+                            </a>
+
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">$ 5000</p>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -166,7 +328,7 @@
                         <a href="#"><i class="fab fa-whatsapp"></i></a>
 
                     </div>
-                   
+
                 </div>
             </div>
 
@@ -192,7 +354,10 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
 
+    <script src="./js/data.js"></script>
     <script src="./js/index.js"></script>
+    <script src="./js/clear-cart.js"></script>
+
 
 
 </body>

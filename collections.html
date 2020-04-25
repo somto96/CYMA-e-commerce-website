@@ -32,7 +32,31 @@
         <div class="container">
             <div class="row pre-header-items">
                 <div class="col-md-6 btn-col">
-                    <a href="#" class="btn btn-outline-primary"> Book Appointment</a>
+                    <a href="" class="btn btn-outline-primary" id="appointment-modal" data-toggle="modal"
+                        data-target="#exampleModalCenter"> Book Appointment</a>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Private Consultations &
+                                    Appointments</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                For private consultations and appointments, please give us a call:
+                                <b>+234000000000</b>.<br />
+                                We are here to serve you better.
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-6 contact-col">
                     <h6 class="contact-number">Call us now: +234000000000</h6>
@@ -68,11 +92,38 @@
                         </li>
 
                     </ul>
+                    <div class="dropdown ">
+                        <a href="#" class="icons-nav-link dropdown-toggle" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span
+                                class="badge badge-light" id="cart-badge">0</span>
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div id="cart-list">
+
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class="row text-center" id="cart-footer">
+                                <div class="col-md-12">
+                                    <a href="#" class="clear-cart__btn btn btn-outline-primary" id="clear-cart">Clear
+                                        Cart</a>
+                                </div>
+
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class="row text-center" id="cart-footer">
+                                <div class="col-md-12">
+                                    <a href="checkout.html" class="clear-cart__btn btn btn-outline-primary">Checkout</a>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
                     <a href="#" class="icons-nav-link"><i class="fas fa-search"></i></a>
                     <a href="#" class="icons-nav-link"><i class="fas fa-user"></i></a>
-                    <a href="#" class="icons-nav-link"><span class="badge badge-light">0</span><i
-                            class="fas fa-shopping-cart"></i> </a>
-                    
+
+
                 </div>
             </div>
 
@@ -97,7 +148,7 @@
                         <!-- d-none d-md-block -->
                         <h1>Explore Our Hot Collections</h1>
                         <p class="caption-by-line">Discover More On Our Latest Collections</p>
-                        
+
                     </div>
                 </div>
                 <div class="carousel-item">
@@ -106,7 +157,7 @@
                     <div class="carousel-caption">
                         <h1>Explore Our Hot Collections</h1>
                         <p class="caption-by-line">Discover More On Our Latest Collections</p>
-                        
+
                     </div>
                 </div>
                 <div class="carousel-item">
@@ -115,7 +166,7 @@
                     <div class="carousel-caption">
                         <h1>Explore Our Hot Collections</h1>
                         <p class="caption-by-line">Discover More On Our Latest Collections</p>
-                      
+
                     </div>
                 </div>
             </div>
@@ -128,7 +179,83 @@
         <hr class="horizontal-rule mb-5" />
         <div class="container mt-5">
 
-            <div class="owl-carousel" id="carousel-A">
+            <div class="owl-carousel">
+                <div class="card" id="card-A1">
+                    <img src="./assets/img/product_images/cyma_fashion_style_20200307_112341_0.jpg" class="card-img-top"
+                        alt="Product">
+                    <a href="#">
+                        <div class="cart-icon text-center">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                    </a>
+                    <a href="" id="view-linkA1">
+                        <div class="view-icon text-center">
+                            <i class="far fa-eye"></i>
+                        </div>
+                    </a>
+
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">$ 5000</p>
+                    </div>
+                </div>
+                <div class="card " id="card-A2">
+                    <img src="./assets/img/product_images/cyma_fashion_style_20200307_112438_0.jpg" class="card-img-top"
+                        alt="Product">
+                    <a href="#">
+                        <div class="cart-icon text-center">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                    </a>
+                    <a href="#" id="view-linkA2">
+                        <div class="view-icon text-center">
+                            <i class="far fa-eye"></i>
+                        </div>
+                    </a>
+
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">$ 5000</p>
+                    </div>
+                </div>
+                <div class="card " id="card-A3">
+                    <img src="./assets/img/product_images/cyma_fashion_style_20200307_112521_0.jpg" class="card-img-top"
+                        alt="Product">
+                    <a href="#">
+                        <div class="cart-icon text-center">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                    </a>
+                    <a href="#" id="view-linkA3">
+                        <div class="view-icon text-center">
+                            <i class="far fa-eye"></i>
+                        </div>
+                    </a>
+
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">$ 5000</p>
+                    </div>
+                </div>
+                <div class="card " id="card-A4">
+                    <img src="./assets/img/product_images/cyma_fashion_style_20200307_112544_0.jpg" class="card-img-top"
+                        alt="Product">
+                    <a href="#">
+                        <div class="cart-icon text-center">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                    </a>
+                    <a href="#" id="view-linkA4">
+                        <div class="view-icon text-center">
+                            <i class="far fa-eye"></i>
+                        </div>
+                    </a>
+
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">$ 5000</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -138,11 +265,86 @@
         <hr class="horizontal-rule mb-5" />
         <div class="container mt-5">
 
-            <div class="owl-carousel" id="carousel-B">
+            <div class="owl-carousel">
+                <div class="card" id="card-B1">
+                    <img src="./assets/img/product_images/@capitalhaykayphotography_(14).JPG" class="card-img-top"
+                        alt="Product">
+                    <a href="#">
+                        <div class="cart-icon text-center">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                    </a>
+                    <a href="#" id="view-linkB1">
+                        <div class="view-icon text-center">
+                            <i class="far fa-eye"></i>
+                        </div>
+                    </a>
+
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">$ 5000</p>
+                    </div>
+                </div>
+                <div class="card " id="card-B2">
+                    <img src="./assets/img/product_images/@capitalhaykayphotography_(18).JPG" class="card-img-top"
+                        alt="Product">
+                    <a href="#">
+                        <div class="cart-icon text-center">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                    </a>
+                    <a href="#" id="view-linkB2">
+                        <div class="view-icon text-center">
+                            <i class="far fa-eye"></i>
+                        </div>
+                    </a>
+
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">$ 5000</p>
+                    </div>
+                </div>
+                <div class="card " id="card-B3">
+                    <img src="./assets/img/product_images/@capitalhaykayphotography_(8).JPG" class="card-img-top"
+                        alt="Product">
+                    <a href="#">
+                        <div class="cart-icon text-center">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                    </a>
+                    <a href="#" id="view-linkB3">
+                        <div class="view-icon text-center">
+                            <i class="far fa-eye"></i>
+                        </div>
+                    </a>
+
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">$ 5000</p>
+                    </div>
+                </div>
+                <div class="card " id="card-B4">
+                    <img src="./assets/img/product_images/@capitalhaykayphotography_(9).JPG" class="card-img-top"
+                        alt="Product">
+                    <a href="#">
+                        <div class="cart-icon text-center">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                    </a>
+                    <a href="#" id="view-linkB4">
+                        <div class="view-icon text-center">
+                            <i class="far fa-eye"></i>
+                        </div>
+                    </a>
+
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">$ 5000</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
     <section class="footer sticky-bottom">
         <div class="container">
             <div class="row pt-5">
@@ -170,7 +372,7 @@
                         <a href="#"><i class="fab fa-whatsapp"></i></a>
 
                     </div>
-                
+
                 </div>
             </div>
 
@@ -196,7 +398,9 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
 
+    <script src="./js/data.js"></script>
     <script src="./js/collections.js"></script>
+    <script src="./js/clear-cart.js"></script>
 
     <!-- OWL CAROUSEL JS -->
     <script src="./assets/Libraries/owlcarousel/docs/assets/vendors/jquery.min.js"></script>
