@@ -301,6 +301,49 @@
 
     </section>
 
+    MODAL
+     <div class="modal-dialog modal-dialog-centered"  role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" id="product-modal-title">Card Title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" id="test">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 img-col text-center mb-3">
+                            <img src="./assets/img/product_images/cyma_fashion_style_20200307_112614_0.jpg"
+                                alt="product" class="product-img" >
+                        </div>
+                        <div class="col-md-6 text-col">
+                            <p id="product-description">Lorem Ipsum </p>
+                            <p id="product-price"> $5000</p>
+                            <form class="product-specs" id="form">
+                                <div class="form-group">
+                                    <label  for="quantity">Quantity</label>
+                                    <input type="number" class="form-control" id="quantity" min="1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputSize">Size</label>
+                                    <select id="inputSize" class="form-control" required>
+                                        <option  selected>Choose...</option>
+                                        <option value="small">Small</option>
+                                        <option value="large">Large</option>
+                                        <option value="extra-large">Extra Large</option>
+                                        <option value="double-extra-large">Double Extra Large</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" id="submit-btn">Add to cart</button>
+                </div>
+            </div>
+        </div>
+
 
 
 

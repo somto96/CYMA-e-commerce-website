@@ -36,13 +36,15 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalCenterTitle">Private Consultations & Appointments</h5>
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Private Consultations &
+                                    Appointments</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
-                                For private consultations and appointments, please give us a call: <b>+234000000000</b>.<br/>
+                                For private consultations and appointments, please give us a call:
+                                <b>+234000000000</b>.<br />
                                 We are here to serve you better.
                             </div>
                             <div class="modal-footer">
@@ -138,7 +140,7 @@
 
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="./assets/img/product_images/cyma_fashion_style_20200307_114001_0.jpg"
+                    <img src="assets/img/product_images/cyma_fashion_style_20200307_114001_0.jpg"
                         class="d-block w-100 slider-img" alt="slider-1">
                     <div class="carousel-caption">
                         <!-- d-none d-md-block -->
@@ -169,6 +171,27 @@
         </div>
     </div>
 
+    <!-- PRODUCT VIEW MODALS -->
+    <div class="modal fade" id="product-modal-A1" tabindex="-1" role="dialog" aria-labelledby="product-modal-title"
+        aria-hidden="true">
+    </div>
+    <div class="modal fade" id="product-modal-A2" tabindex="-1" role="dialog" aria-labelledby="product-modal-title"
+        aria-hidden="true">
+    </div>
+    <div class="modal fade" id="product-modal-A3" tabindex="-1" role="dialog" aria-labelledby="product-modal-title"
+        aria-hidden="true">
+    </div>
+    <div class="modal fade" id="product-modal-B1" tabindex="-1" role="dialog" aria-labelledby="product-modal-title"
+        aria-hidden="true">
+    </div>
+    <div class="modal fade" id="product-modal-B2" tabindex="-1" role="dialog" aria-labelledby="product-modal-title"
+        aria-hidden="true">
+    </div>
+    <div class="modal fade" id="product-modal-B3" tabindex="-1" role="dialog" aria-labelledby="product-modal-title"
+        aria-hidden="true">
+    </div>
+
+
     <div class="gallery">
         <div class="product-gallery mt-5">
             <h3 class="gallery-title text-center">Product Gallery</h3>
@@ -177,14 +200,14 @@
                 <div class="row mt-3 product-list">
                     <div class="card-deck" id="deck-A">
                         <div class="card" id="card-A1">
-                            <img src="./assets/img/product_images/cyma_fashion_style_20200307_112555_0.jpg"
+                            <img id="img-A1" src="./assets/img/product_images/cyma_fashion_style_20200307_112555_0.jpg"
                                 class="card-img-top" alt="Product">
                             <a href="#">
                                 <div class="cart-icon text-center">
                                     <i class="fas fa-shopping-cart"></i>
                                 </div>
                             </a>
-                            <a href="" id="view-linkA1">
+                            <a href="" id="view-linkA1" data-toggle="modal" data-target="#product-modal-A1">
                                 <div class="view-icon text-center">
                                     <i class="far fa-eye"></i>
                                 </div>
@@ -196,14 +219,14 @@
                             </div>
                         </div>
                         <div class="card" id="card-A2">
-                            <img src="./assets/img/product_images/cyma_fashion_style_20200307_112614_0.jpg"
+                            <img id="img-A2"src="./assets/img/product_images/cyma_fashion_style_20200307_112614_0.jpg"
                                 class="card-img-top" alt="...">
                             <a href="#">
                                 <div class="cart-icon text-center">
                                     <i class="fas fa-shopping-cart"></i>
                                 </div>
                             </a>
-                            <a href="#" id="view-linkA2">
+                            <a href="#" data-toggle="modal" data-target="#product-modal-A2" id="view-linkA2">
                                 <div class="view-icon text-center">
                                     <i class="far fa-eye"></i>
                                 </div>
@@ -222,7 +245,7 @@
                                     <i class="fas fa-shopping-cart"></i>
                                 </div>
                             </a>
-                            <a href="#" id="view-linkA3">
+                            <a href="#" id="view-linkA3" data-toggle="modal" data-target="#product-modal-A3">
                                 <div class="view-icon text-center">
                                     <i class="far fa-eye"></i>
                                 </div>
@@ -246,7 +269,7 @@
                                     <i class="fas fa-shopping-cart"></i>
                                 </div>
                             </a>
-                            <a href="#" id="view-linkB1">
+                            <a href="#" id="view-linkB1" data-toggle="modal" data-target="#product-modal-B1">
                                 <div class="view-icon text-center">
                                     <i class="far fa-eye"></i>
                                 </div>
@@ -265,7 +288,7 @@
                                     <i class="fas fa-shopping-cart"></i>
                                 </div>
                             </a>
-                            <a href="#" id="view-linkB2">
+                            <a href="#" id="view-linkB2" data-toggle="modal" data-target="#product-modal-B2">
                                 <div class="view-icon text-center">
                                     <i class="far fa-eye"></i>
                                 </div>
@@ -276,7 +299,7 @@
                                 <p class="card-text">$ 5000</p>
                             </div>
                         </div>
-                        <div class="card" id="card-B3">
+                        <div class="card" id="card-B3" >
                             <img src="./assets/img/product_images/cyma_fashion_style_20200307_114038_0.jpg"
                                 class="card-img-top" alt="...">
                             <a href="#">
@@ -284,7 +307,7 @@
                                     <i class="fas fa-shopping-cart"></i>
                                 </div>
                             </a>
-                            <a href="#" id="view-linkB3">
+                            <a href="#" id="view-linkB3" data-toggle="modal" data-target="#product-modal-B3">
                                 <div class="view-icon text-center">
                                     <i class="far fa-eye"></i>
                                 </div>

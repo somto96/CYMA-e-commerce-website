@@ -77,7 +77,8 @@ $(document).ready(function () {
     var imgUrl = imgCol.childNodes[1].src;
    
     // Image path/URL
-    var requiredPath = '.' + imgUrl.slice(21);
+    var requiredPath = imgUrl.slice(22);
+    console.log(requiredPath);
    
 
     var productObject = viewProducts.filter(x => x.url === requiredPath);

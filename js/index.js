@@ -94,7 +94,7 @@ $(document).ready(function () {
              * CROSS REFERENCE PATH WITH IMG SRC IN LEGACY INDEX
              */
 
-            var requiredPath = '.' + imgPath.slice(21);
+            var requiredPath = imgPath.slice(22);
             console.log(requiredPath);
 
             // FILTERING OUT REQUIRED DATA FROM LOCAL STORAGE
@@ -118,6 +118,7 @@ $(document).ready(function () {
 
             console.log(viewCart);
 
+            var badge = document.querySelector('#cart-length');
             badge.textContent = viewCart.length;
 
             // STORING CART ITEMS IN LOCAL STORAGE
@@ -128,6 +129,214 @@ $(document).ready(function () {
 
 
 
+    }
+    // var test = document.getElementById('test');
+    // console.log(test);
+
+
+
+
+
+    // CREATING MODAL
+    var productModal = (imgUrl, nameTag) => {
+
+        // FILTERING OUT SELECTED ITEM
+        var requiredPath = imgUrl.slice(22);
+        console.log(requiredPath);
+        var productObject = viewProducts.filter(x => x.url === requiredPath);
+        console.log(productObject);
+
+        var divModalDialog = document.createElement('div');
+
+        var divModalContent = document.createElement('div');
+
+        // MODAL CONTENT => MODAL HEADER
+        var divModalHeader = document.createElement('div');
+        var h5ModalTitle = document.createElement('h5');
+        var headerButton = document.createElement('button');
+        var headerSpan = document.createElement('span');
+
+        // MODAL CONTENT => MODAL BODY
+        var divModalBody = document.createElement('div');
+        var bodyRow = document.createElement('div');
+        var imgCol = document.createElement('div');
+        var bodyImage = new Image();
+        var textCol = document.createElement('div');
+        var bodyDescription = document.createElement('p');
+        var bodyPrice = document.createElement('p');
+
+        // MODAL BODY => MODAL FORM
+        var bodyForm = document.createElement('form');
+        var bodyFormDivA = document.createElement('div');
+        var bodyFormLabelA = document.createElement('label');
+        var bodyFormInput = document.createElement('input');
+        var bodyFormDivB = document.createElement('div');
+        var bodyFormLabelB = document.createElement('label');
+        var bodyFormSelect = document.createElement('select');
+        var bodySelectOptionA = document.createElement('option');
+        var bodySelectOptionB = document.createElement('option');
+        var bodySelectOptionC = document.createElement('option');
+        var bodySelectOptionD = document.createElement('option');
+        var bodySelectOptionE = document.createElement('option');
+
+        // MODAL CONTENT => MODAL FOOTER
+        var divModalFooter = document.createElement('div');
+        var submitBtn = document.createElement('button');
+
+        // ATTRIBUTES
+
+        divModalDialog.classList.add('modal-dialog', 'modal-dialog-centered');
+        divModalDialog.setAttribute('role', 'document');
+
+        divModalContent.classList.add('modal-content');
+
+        divModalHeader.setAttribute('class', 'modal-header');
+        h5ModalTitle.classList.add('modal-title', 'text-center');
+        h5ModalTitle.setAttribute('id', 'product-modal-title');
+        h5ModalTitle.textContent = `${productObject[0].name}`;
+        headerButton.classList.add('close');
+        headerButton.setAttribute('data-dismiss', 'modal');
+        headerButton.setAttribute('aria-label', 'Close');
+        headerSpan.setAttribute('aria-hidden', 'true');
+        headerSpan.innerHTML = '&times;'
+
+        divModalBody.setAttribute('class', 'modal-body');
+        bodyRow.setAttribute('class', 'row');
+        imgCol.classList.add('col-md-6', 'img-col', 'text-center', 'mb-3');
+        bodyImage.src = `${ productObject[0].url}`;
+        bodyImage.setAttribute('class', 'product-img');
+        bodyImage.alt = 'Product';
+        textCol.classList.add('col-md-6', 'text-col');
+        bodyDescription.setAttribute('id', 'product-description');
+        bodyDescription.textContent = `${productObject[0].description}`;
+        bodyPrice.setAttribute('id', 'product-price');
+        bodyPrice.textContent = `$${productObject[0].price}`;
+
+        bodyForm.setAttribute('class', 'product-specs');
+        bodyForm.setAttribute('id', 'form');
+        bodyFormDivA.setAttribute('class', 'form-group');
+        bodyFormLabelA.setAttribute('for', 'quantity');
+        bodyFormInput.setAttribute('class', 'form-control');
+        bodyFormInput.setAttribute('type', 'number');
+        bodyFormInput.setAttribute('id', 'quantity');
+        bodyFormInput.setAttribute('min', '1');
+        bodyFormInput.required = true;
+
+        bodyFormDivB.setAttribute('class', 'form-group');
+        bodyFormLabelB.setAttribute('for', 'inputSize');
+        bodyFormSelect.setAttribute('id', 'inputSize');
+        bodyFormSelect.setAttribute('class', 'form-control');
+        bodyFormSelect.required = true;
+        bodySelectOptionA.selected = true;
+        bodySelectOptionA.textContent = 'Choose...';
+        bodySelectOptionB.value = 'small';
+        bodySelectOptionB.textContent = 'Small';
+        bodySelectOptionC.value = 'large';
+        bodySelectOptionC.textContent = 'Large';
+        bodySelectOptionD.value = 'extra-large';
+        bodySelectOptionD.textContent = 'Extra Large';
+        bodySelectOptionE.value = 'double-extra-large';
+        bodySelectOptionE.textContent = 'Double Extra large';
+
+        divModalFooter.setAttribute('class', 'modal-footer');
+        submitBtn.classList.add('btn', 'btn-primary');
+        submitBtn.setAttribute('id', 'submit-btn');
+        submitBtn.textContent = 'Add to Cart';
+
+        // LINKING MODAL HEADER ELEMENTS
+        headerButton.appendChild(headerSpan);
+        divModalHeader.appendChild(h5ModalTitle);
+        divModalHeader.appendChild(headerButton);
+
+        // LINKING MODAL BODY ELEMENTS
+        imgCol.appendChild(bodyImage);
+        bodyFormSelect.appendChild(bodySelectOptionA);
+        bodyFormSelect.appendChild(bodySelectOptionB);
+        bodyFormSelect.appendChild(bodySelectOptionC);
+        bodyFormSelect.appendChild(bodySelectOptionD);
+        bodyFormSelect.appendChild(bodySelectOptionE);
+
+
+        bodyFormDivA.appendChild(bodyFormLabelA);
+        bodyFormDivA.appendChild(bodyFormInput);
+        bodyFormDivB.appendChild(bodyFormLabelB);
+        bodyFormDivB.appendChild(bodyFormSelect);
+        bodyForm.appendChild(bodyFormDivA);
+        bodyForm.appendChild(bodyFormDivB);
+
+        textCol.appendChild(bodyDescription);
+        textCol.appendChild(bodyPrice);
+        textCol.appendChild(bodyForm);
+
+        bodyRow.appendChild(imgCol);
+        bodyRow.appendChild(textCol);
+        divModalBody.appendChild(bodyRow);
+
+        // LINKING MODAL FOOTER ELEMENTS
+        divModalFooter.appendChild(submitBtn);
+
+        // LINKING ALL ELEMENTS
+        divModalContent.appendChild(divModalHeader);
+        divModalContent.appendChild(divModalBody);
+        divModalContent.appendChild(divModalFooter);
+        divModalDialog.appendChild(divModalContent);
+
+        // Targeting parent modal divs
+        var productModalA1 = document.getElementById('product-modal-A1');
+        var productModalA2 = document.getElementById('product-modal-A2');
+        var productModalA3 = document.getElementById('product-modal-A3');
+        var productModalB1 = document.getElementById('product-modal-B1');
+        var productModalB2 = document.getElementById('product-modal-B2');
+        var productModalB3 = document.getElementById('product-modal-B3');
+
+        // SETTING CONDITIONS FOR CLICK EVENT
+        if (nameTag === 'A1') {
+            productModalA1.appendChild(divModalDialog);
+        }else if(nameTag === 'A2'){
+            productModalA2.appendChild(divModalDialog);
+        }else if(nameTag === 'A3'){
+            productModalA3.appendChild(divModalDialog);
+        }else if (nameTag === 'B1'){
+            productModalB1.appendChild(divModalDialog);
+        }else if (nameTag === 'B2'){
+            productModalB2.appendChild(divModalDialog);
+        }else if (nameTag === 'B3'){
+            productModalB3.appendChild(divModalDialog);
+        }
+   
+
+        // FORM SUBMISSION AND HANDLING
+        submitBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            var quantity = document.getElementById('quantity');
+            console.log(quantity.value);
+
+            var size = document.getElementById('inputSize');
+            console.log(size.value);
+            var itemObject = {}
+            itemObject.image = productObject[0].url;
+            itemObject.quantity = Number(quantity.value);
+            itemObject.name = productObject[0].name;
+            itemObject.price = Number(productObject[0].price);
+            itemObject.size = size.value;
+
+            console.log('====================================');
+            console.log(itemObject);
+            console.log('====================================');
+            alert(`${itemObject.name} added!`);
+            cartTemplate(itemObject);
+
+            viewCart.push(itemObject);
+
+            console.log(viewCart);
+
+            var badge = document.querySelector('#cart-length');
+            badge.textContent = viewCart.length;
+
+            // STORING CART ITEMS IN LOCAL STORAGE
+            localStorage.setItem("cart", JSON.stringify(viewCart));
+
+        })
     }
 
     // DECK A (CART-ICON FUNCTION)
@@ -150,10 +359,11 @@ $(document).ready(function () {
 
 
 
-
-    var viewRoute = (element, route) => {
+    // VIEW MODAL FUNCTION
+    var viewModal = (element, imgUrl, nameTag) => {
         element.addEventListener('click', (e) => {
-            element.href = route;
+            //  LAUNCH PRODUCT VIEW MODAL
+            productModal(imgUrl, nameTag);
         })
     }
 
@@ -162,18 +372,28 @@ $(document).ready(function () {
     var viewLinkA2 = document.getElementById("view-linkA2");
     var viewLinkA3 = document.getElementById("view-linkA3");
 
-    viewRoute(viewLinkA1, 'product-A.html');
-    viewRoute(viewLinkA2, 'product-B.html');
-    viewRoute(viewLinkA3, 'product-C.html');
+    var imgA1 = cardA1.childNodes[1].src
+    var imgA2 = cardA2.childNodes[1].src
+    var imgA3 = cardA3.childNodes[1].src
+
+    console.log(imgA3)
+
+    viewModal(viewLinkA1, imgA1, 'A1');
+    viewModal(viewLinkA2, imgA2, 'A2');
+    viewModal(viewLinkA3, imgA3, 'A3');
 
     // DECK B (VIEW ICON FUNCTION)
     var viewLinkB1 = document.getElementById("view-linkB1");
     var viewLinkB2 = document.getElementById("view-linkB2");
     var viewLinkB3 = document.getElementById("view-linkB3");
 
-    viewRoute(viewLinkB1, 'product-D.html');
-    viewRoute(viewLinkB2, 'product-E.html');
-    viewRoute(viewLinkB3, 'product-F.html');
+    var imgB1 = cardB1.childNodes[1].src
+    var imgB2 = cardB2.childNodes[1].src
+    var imgB3 = cardB3.childNodes[1].src
+
+    viewModal(viewLinkB1, imgB1, 'B1');
+    viewModal(viewLinkB2, imgB2, 'B2');
+    viewModal(viewLinkB3, imgB3, 'B3');
 
 
 

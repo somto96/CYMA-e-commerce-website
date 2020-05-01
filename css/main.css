@@ -278,7 +278,7 @@ body {
 }
 
 .carousel-caption .btn-outline-primary,
-.text-col .product-specs .btn-primary{
+.modal-footer .btn-primary{
     color: #fff;
     background: #e6b03e;
     border: 2px solid #fff;
@@ -286,7 +286,7 @@ body {
 }
 
 .carousel-caption .btn-outline-primary:hover,
-.text-col .product-specs .btn-primary:hover {
+.modal-footer .btn-primary:hover {
     border: 2px solid #e6b03e;
     color: #e6b03e;
     font-weight: 600;
