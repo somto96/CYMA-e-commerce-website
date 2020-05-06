@@ -94,7 +94,7 @@ $(document).ready(function () {
              * CROSS REFERENCE PATH WITH IMG SRC IN LEGACY INDEX
              */
 
-            var requiredPath = imgPath.slice(22);
+            var requiredPath = imgPath.slice(25);
             console.log(requiredPath);
 
             // FILTERING OUT REQUIRED DATA FROM LOCAL STORAGE

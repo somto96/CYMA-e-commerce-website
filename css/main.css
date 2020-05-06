@@ -162,7 +162,8 @@ body {
 }
 
 .product-gallery .horizontal-rule,
-.product-carousel-A .horizontal-rule {
+.product-carousel-A .horizontal-rule,
+.text-section .horizontal-rule {
     border-top: 3px solid #e6b03e;
     width: 50px;
     padding: 0 auto;
@@ -237,7 +238,11 @@ body {
     margin: 10px;
 }
 
-
+/* ABOUT US */
+.about-us .img-section .about-profile-img{
+    width: auto;
+    height: 300px;
+}
 
 
 /* BUTTONS */
