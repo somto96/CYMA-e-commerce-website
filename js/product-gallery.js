@@ -78,24 +78,15 @@ $(document).ready(function () {
 
         var image = cardNodes[1];
         var cartLink = cardNodes[3];
-        var viewLink = cardNodes[5];
+        // var viewLink = cardNodes[5];
+
+        var productId = Number(image.classList[1]);
 
         // OBJECT TO STORE EACH ITEM SELECTED BEFORE PUSHING INTO viewCart
         var itemObject = {};
         cartLink.addEventListener('click', (e) => {
-            var imgPath = image.src;
-
-            /*
-             *  REQUIRED PATH === PATH USED IN HTML CODE
-             * RUN THIS SNIPPET BELOW (var requiredPath) = console.log(requiredPath); to view path.
-             * CROSS REFERENCE PATH WITH IMG SRC IN LEGACY INDEX
-             */
-
-            var requiredPath = '.' + imgPath.slice(21);
-            console.log(requiredPath);
-
             // FILTERING OUT REQUIRED DATA FROM LOCAL STORAGE
-            var productObject = viewProducts.filter(x => x.url === requiredPath);
+            var productObject = viewProducts.filter(x => x.id === productId);
             console.log(productObject);
 
             itemObject.image = productObject[0].url;
@@ -124,13 +115,14 @@ $(document).ready(function () {
     }
 
     // CREATING MODAL
-    var productModal = (imgUrl, nameTag) => {
+    var productModal = (img, nameTag) => {
 
         // FILTERING OUT SELECTED ITEM
-        var requiredPath = imgUrl.slice(22);
-        console.log(requiredPath);
-        var productObject = viewProducts.filter(x => x.url === requiredPath);
+        var productId = Number(img.classList[1]);
+
+        var productObject = viewProducts.filter(x => x.id === productId);
         console.log(productObject);
+
 
         var divModalDialog = document.createElement('div');
 
@@ -391,10 +383,10 @@ $(document).ready(function () {
     var viewLinkA3 = document.getElementById("view-linkA3");
     var viewLinkA4 = document.getElementById("view-linkA4");
 
-    var imgA1 = cardA1.childNodes[1].src
-    var imgA2 = cardA2.childNodes[1].src
-    var imgA3 = cardA3.childNodes[1].src
-    var imgA4 = cardA4.childNodes[1].src
+    var imgA1 = cardA1.childNodes[1]
+    var imgA2 = cardA2.childNodes[1]
+    var imgA3 = cardA3.childNodes[1]
+    var imgA4 = cardA4.childNodes[1]
 
     console.log(imgA3);
 
@@ -409,10 +401,10 @@ $(document).ready(function () {
     var viewLinkB3 = document.getElementById("view-linkB3");
     var viewLinkB4 = document.getElementById("view-linkB4");
 
-    var imgB1 = cardB1.childNodes[1].src
-    var imgB2 = cardB2.childNodes[1].src
-    var imgB3 = cardB3.childNodes[1].src
-    var imgB4 = cardB4.childNodes[1].src
+    var imgB1 = cardB1.childNodes[1]
+    var imgB2 = cardB2.childNodes[1]
+    var imgB3 = cardB3.childNodes[1]
+    var imgB4 = cardB4.childNodes[1]
 
     viewModal(viewLinkB1, imgB1, 'B1');
     viewModal(viewLinkB2, imgB2, 'B2');
@@ -425,10 +417,10 @@ $(document).ready(function () {
     var viewLinkC3 = document.getElementById("view-linkC3");
     var viewLinkC4 = document.getElementById("view-linkC4");
 
-    var imgC1 = cardC1.childNodes[1].src
-    var imgC2 = cardC2.childNodes[1].src
-    var imgC3 = cardC3.childNodes[1].src
-    var imgC4 = cardC4.childNodes[1].src
+    var imgC1 = cardC1.childNodes[1]
+    var imgC2 = cardC2.childNodes[1]
+    var imgC3 = cardC3.childNodes[1]
+    var imgC4 = cardC4.childNodes[1]
 
     viewModal(viewLinkC1, imgC1, 'C1');
     viewModal(viewLinkC2, imgC2, 'C2');

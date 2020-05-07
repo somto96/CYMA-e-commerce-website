@@ -67,9 +67,9 @@ $(document).ready(function () {
         }
         // DISPLAYS NUMBER OF ITEMS IN CART
         var badge = document.querySelector('#cart-length');
-        console.log(badge);
+        // console.log(badge);
         badge.textContent = viewCart.length;
-        console.log(viewCart.length);
+        // console.log(viewCart.length);
 
     } else {
         console.log("No items in cart");
@@ -83,22 +83,15 @@ $(document).ready(function () {
         var image = cardNodes[1];
         var cartLink = cardNodes[3];
 
+        console.log(Number(image.classList[1]));
+
+        var productId = Number(image.classList[1]);
+
         // OBJECT TO STORE EACH ITEM SELECTED BEFORE PUSHING INTO viewCart
         var itemObject = {};
         cartLink.addEventListener('click', (e) => {
-            var imgPath = image.src;
-
-            /*
-             *  REQUIRED PATH === PATH USED IN HTML CODE
-             * RUN THIS SNIPPET BELOW (var requiredPath) = console.log(requiredPath); to view path.
-             * CROSS REFERENCE PATH WITH IMG SRC IN LEGACY INDEX
-             */
-
-            var requiredPath = imgPath.slice(25);
-            console.log(requiredPath);
-
             // FILTERING OUT REQUIRED DATA FROM LOCAL STORAGE
-            var productObject = viewProducts.filter(x => x.url === requiredPath);
+            var productObject = viewProducts.filter(x => x.id === productId);
             console.log(productObject);
 
             itemObject.image = productObject[0].url;
@@ -138,12 +131,12 @@ $(document).ready(function () {
 
 
     // CREATING MODAL
-    var productModal = (imgUrl, nameTag) => {
+    var productModal = (img, nameTag) => {
 
         // FILTERING OUT SELECTED ITEM
-        var requiredPath = imgUrl.slice(22);
-        console.log(requiredPath);
-        var productObject = viewProducts.filter(x => x.url === requiredPath);
+        var productId = Number(img.classList[1]);
+
+        var productObject = viewProducts.filter(x => x.id === productId);
         console.log(productObject);
 
         var divModalDialog = document.createElement('div');
@@ -372,9 +365,9 @@ $(document).ready(function () {
     var viewLinkA2 = document.getElementById("view-linkA2");
     var viewLinkA3 = document.getElementById("view-linkA3");
 
-    var imgA1 = cardA1.childNodes[1].src
-    var imgA2 = cardA2.childNodes[1].src
-    var imgA3 = cardA3.childNodes[1].src
+    var imgA1 = cardA1.childNodes[1]
+    var imgA2 = cardA2.childNodes[1]
+    var imgA3 = cardA3.childNodes[1]
 
     console.log(imgA3)
 
@@ -387,9 +380,9 @@ $(document).ready(function () {
     var viewLinkB2 = document.getElementById("view-linkB2");
     var viewLinkB3 = document.getElementById("view-linkB3");
 
-    var imgB1 = cardB1.childNodes[1].src
-    var imgB2 = cardB2.childNodes[1].src
-    var imgB3 = cardB3.childNodes[1].src
+    var imgB1 = cardB1.childNodes[1]
+    var imgB2 = cardB2.childNodes[1]
+    var imgB3 = cardB3.childNodes[1]
 
     viewModal(viewLinkB1, imgB1, 'B1');
     viewModal(viewLinkB2, imgB2, 'B2');
