@@ -42,7 +42,7 @@ $(document).ready(function () {
         image.src = `${iterator.image}`;
         textLink.href = '#';
         spanA.textContent = `${iterator.name}`;
-        spanB.textContext = `$${iterator.price}`;
+        spanB.textContext = `₦${iterator.price}`;
 
         divA.appendChild(image);
         textLink.appendChild(spanA);
@@ -203,12 +203,13 @@ $(document).ready(function () {
         bodyDescription.setAttribute('id', 'product-description');
         bodyDescription.textContent = `${productObject[0].description}`;
         bodyPrice.setAttribute('id', 'product-price');
-        bodyPrice.textContent = `$${productObject[0].price}`;
+        bodyPrice.textContent = `₦${productObject[0].price}`;
 
         bodyForm.setAttribute('class', 'product-specs');
         bodyForm.setAttribute('id', 'form');
         bodyFormDivA.setAttribute('class', 'form-group');
         bodyFormLabelA.setAttribute('for', 'quantity');
+        bodyFormLabelA.textContent = 'Quantity'
         bodyFormInput.setAttribute('class', 'form-control');
         bodyFormInput.setAttribute('type', 'number');
         bodyFormInput.setAttribute('id', 'quantity');
@@ -216,6 +217,7 @@ $(document).ready(function () {
         bodyFormInput.required = true;
 
         bodyFormDivB.setAttribute('class', 'form-group');
+        bodyFormLabelB.textContent = "Size"
         bodyFormLabelB.setAttribute('for', 'inputSize');
         bodyFormSelect.setAttribute('id', 'inputSize');
         bodyFormSelect.setAttribute('class', 'form-control');

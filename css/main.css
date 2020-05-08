@@ -169,10 +169,10 @@ body {
     padding: 0 auto;
 }
 
-.product-gallery .card-deck {
+/* .product-gallery .card-deck {
     padding-left: 10px;
     padding-right: 10px;
-}
+} */
 
 .product-gallery .card-deck .card .card-body .card-text {
     font-weight: 500;
