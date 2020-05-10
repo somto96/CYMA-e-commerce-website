@@ -2,15 +2,15 @@ $(document).ready(function () {
 
     // RETRIEVING PRODUCT DATA FROM LOCAL STORAGE
     var viewProducts = JSON.parse(localStorage.getItem("products") || "[]");
-    console.log('====================================');
-    console.log(viewProducts);
-    console.log('====================================');
+    // console.log('====================================');
+    // console.log(viewProducts);
+    // console.log('====================================');
 
     // RETRIEVING CART ITEMS FORM LOCAL STORAGE
     var viewCart = JSON.parse(localStorage.getItem("cart") || "[]");
-    console.log('====================================');
-    console.log(viewCart);
-    console.log('====================================');
+    // console.log('====================================');
+    // console.log(viewCart);
+    // console.log('====================================');
 
     // TEMPLATE FOR CART ITEMS
     var cartTemplate = (item) => {
@@ -63,13 +63,14 @@ $(document).ready(function () {
         }
         // DISPLAYS NUMBER OF ITEMS IN CART
         var badge = document.getElementById('cart-badge');
-        console.log(badge);
+        // console.log(badge);
         badge.textContent = viewCart.length;
-        console.log(viewCart.length);
+        // console.log(viewCart.length);
 
-    } else {
-        console.log("No items in cart");
     }
+    //  else {
+    //     console.log("No items in cart");
+    // }
 
 
     // MOVES ITEMS SELECTED TO CART
@@ -87,7 +88,7 @@ $(document).ready(function () {
         cartLink.addEventListener('click', (e) => {
             // FILTERING OUT REQUIRED DATA FROM LOCAL STORAGE
             var productObject = viewProducts.filter(x => x.id === productId);
-            console.log(productObject);
+            // console.log(productObject);
 
             itemObject.image = productObject[0].url;
             itemObject.name = productObject[0].name;
@@ -95,16 +96,16 @@ $(document).ready(function () {
             itemObject.quantity = 1;
 
             // cartItems.push(itemA);
-            console.log('====================================');
-            console.log(itemObject);
-            console.log('====================================');
+            // console.log('====================================');
+            // console.log(itemObject);
+            // console.log('====================================');
             alert(`${itemObject.name} added!`)
 
             cartTemplate(itemObject);
 
             viewCart.push(itemObject);
 
-            console.log(viewCart);
+            // console.log(viewCart);
 
             var badge = document.getElementById('cart-badge');
             badge.textContent = viewCart.length;
@@ -122,7 +123,7 @@ $(document).ready(function () {
         var productId = Number(img.classList[1]);
 
         var productObject = viewProducts.filter(x => x.id === productId);
-        console.log(productObject);
+        // console.log(productObject);
 
 
         var divModalDialog = document.createElement('div');
@@ -182,7 +183,7 @@ $(document).ready(function () {
         divModalBody.setAttribute('class', 'modal-body');
         bodyRow.setAttribute('class', 'row');
         imgCol.classList.add('col-md-6', 'img-col', 'text-center', 'mb-3');
-        bodyImage.src = `${ productObject[0].url}`;
+        bodyImage.src = `${productObject[0].url}`;
         bodyImage.setAttribute('class', 'product-img');
         bodyImage.alt = 'Product';
         textCol.classList.add('col-md-6', 'text-col');
@@ -194,6 +195,7 @@ $(document).ready(function () {
         bodyForm.setAttribute('class', 'product-specs');
         bodyForm.setAttribute('id', 'form');
         bodyFormDivA.setAttribute('class', 'form-group');
+        bodyFormLabelA.textContent = 'Quantity';
         bodyFormLabelA.setAttribute('for', 'quantity');
         bodyFormInput.setAttribute('class', 'form-control');
         bodyFormInput.setAttribute('type', 'number');
@@ -202,6 +204,7 @@ $(document).ready(function () {
         bodyFormInput.required = true;
 
         bodyFormDivB.setAttribute('class', 'form-group');
+        bodyFormLabelB.textContent = 'Size';
         bodyFormLabelB.setAttribute('for', 'inputSize');
         bodyFormSelect.setAttribute('id', 'inputSize');
         bodyFormSelect.setAttribute('class', 'form-control');
@@ -292,35 +295,38 @@ $(document).ready(function () {
 
         // FORM SUBMISSION AND HANDLING
         submitBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            var quantity = document.getElementById('quantity');
-            console.log(quantity.value);
+            if (bodyFormInput !== null && !bodySelectOptionA.selected) {
+                e.preventDefault();
+                var quantity = document.getElementById('quantity');
+                // console.log(quantity.value);
 
-            var size = document.getElementById('inputSize');
-            console.log(size.value);
-            var itemObject = {}
-            itemObject.image = productObject[0].url;
-            itemObject.quantity = Number(quantity.value);
-            itemObject.name = productObject[0].name;
-            itemObject.price = Number(productObject[0].price);
-            itemObject.size = size.value;
+                var size = document.getElementById('inputSize');
+                // console.log(size.value);
+                var itemObject = {}
+                itemObject.image = productObject[0].url;
+                itemObject.quantity = Number(quantity.value);
+                itemObject.name = productObject[0].name;
+                itemObject.price = Number(productObject[0].price);
+                itemObject.size = size.value;
 
-            console.log('====================================');
-            console.log(itemObject);
-            console.log('====================================');
-            alert(`${itemObject.name} added!`);
-            cartTemplate(itemObject);
+                // console.log('====================================');
+                // console.log(itemObject);
+                // console.log('====================================');
+                alert(`${itemObject.name} added to cart!`);
+                cartTemplate(itemObject);
 
-            viewCart.push(itemObject);
+                viewCart.push(itemObject);
 
-            console.log(viewCart);
+                // console.log(viewCart);
 
-            var badge = document.querySelector('#cart-length');
-            badge.textContent = viewCart.length;
+                var badge = document.querySelector('#cart-badge');
+                badge.textContent = viewCart.length;
 
-            // STORING CART ITEMS IN LOCAL STORAGE
-            localStorage.setItem("cart", JSON.stringify(viewCart));
-
+                // STORING CART ITEMS IN LOCAL STORAGE
+                localStorage.setItem("cart", JSON.stringify(viewCart));
+            } else {
+                alert(`Please fill all required fields!`)
+            }
         })
     }
 
@@ -368,7 +374,7 @@ $(document).ready(function () {
     var imgA4 = cardA4.childNodes[1]
 
 
-    console.log(imgA3);
+    // console.log(imgA3);
 
     viewModal(viewLinkA1, imgA1, 'A1');
     viewModal(viewLinkA2, imgA2, 'A2');

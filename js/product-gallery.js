@@ -1,15 +1,15 @@
 $(document).ready(function () {
     // RETRIEVING PRODUCT DATA FROM LOCAL STORAGE
     var viewProducts = JSON.parse(localStorage.getItem("products") || "[]");
-    console.log('====================================');
-    console.log(viewProducts);
-    console.log('====================================');
+    // console.log('====================================');
+    // console.log(viewProducts);
+    // console.log('====================================');
 
     // RETRIEVING CART ITEMS FORM LOCAL STORAGE
     var viewCart = JSON.parse(localStorage.getItem("cart") || "[]");
-    console.log('====================================');
-    console.log(viewCart);
-    console.log('====================================');
+    // console.log('====================================');
+    // console.log(viewCart);
+    // console.log('====================================');
 
     // TEMPLATE FOR CART ITEMS
     var cartTemplate = (item) => {
@@ -62,13 +62,14 @@ $(document).ready(function () {
         }
         // DISPLAYS NUMBER OF ITEMS IN CART
         var badge = document.querySelector('#cart-length');
-        console.log(badge);
+        // console.log(badge);
         badge.textContent = viewCart.length;
-        console.log(viewCart.length);
+        // console.log(viewCart.length);
 
-    } else {
-        console.log("No items in cart");
     }
+    //  else {
+    //     console.log("No items in cart");
+    // }
 
 
     // MOVES ITEMS SELECTED TO CART
@@ -87,7 +88,7 @@ $(document).ready(function () {
         cartLink.addEventListener('click', (e) => {
             // FILTERING OUT REQUIRED DATA FROM LOCAL STORAGE
             var productObject = viewProducts.filter(x => x.id === productId);
-            console.log(productObject);
+            // console.log(productObject);
 
             itemObject.image = productObject[0].url;
             itemObject.name = productObject[0].name;
@@ -95,16 +96,16 @@ $(document).ready(function () {
             itemObject.quantity = 1;
 
             // cartItems.push(itemA);
-            console.log('====================================');
-            console.log(itemObject);
-            console.log('====================================');
+            // console.log('====================================');
+            // console.log(itemObject);
+            // console.log('====================================');
             alert(`${itemObject.name} added!`)
 
             cartTemplate(itemObject);
 
             viewCart.push(itemObject);
 
-            console.log(viewCart);
+            // console.log(viewCart);
 
             badge.textContent = viewCart.length;
 
@@ -121,7 +122,7 @@ $(document).ready(function () {
         var productId = Number(img.classList[1]);
 
         var productObject = viewProducts.filter(x => x.id === productId);
-        console.log(productObject);
+        // console.log(productObject);
 
 
         var divModalDialog = document.createElement('div');
@@ -193,19 +194,23 @@ $(document).ready(function () {
         bodyForm.setAttribute('class', 'product-specs');
         bodyForm.setAttribute('id', 'form');
         bodyFormDivA.setAttribute('class', 'form-group');
+        bodyFormLabelA.textContent = 'Quantity';
         bodyFormLabelA.setAttribute('for', 'quantity');
         bodyFormInput.setAttribute('class', 'form-control');
         bodyFormInput.setAttribute('type', 'number');
+        bodyFormInput.setAttribute('required', true);
         bodyFormInput.setAttribute('id', 'quantity');
         bodyFormInput.setAttribute('min', '1');
         bodyFormInput.required = true;
 
         bodyFormDivB.setAttribute('class', 'form-group');
         bodyFormLabelB.setAttribute('for', 'inputSize');
+        bodyFormLabelB.textContent = 'Size';
         bodyFormSelect.setAttribute('id', 'inputSize');
         bodyFormSelect.setAttribute('class', 'form-control');
         bodyFormSelect.required = true;
         bodySelectOptionA.selected = true;
+        bodySelectOptionA.value = 'Choose...';
         bodySelectOptionA.textContent = 'Choose...';
         bodySelectOptionB.value = 'small';
         bodySelectOptionB.textContent = 'Small';
@@ -303,34 +308,39 @@ $(document).ready(function () {
 
         // FORM SUBMISSION AND HANDLING
         submitBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            var quantity = document.getElementById('quantity');
-            console.log(quantity.value);
-
-            var size = document.getElementById('inputSize');
-            console.log(size.value);
-            var itemObject = {}
-            itemObject.image = productObject[0].url;
-            itemObject.quantity = Number(quantity.value);
-            itemObject.name = productObject[0].name;
-            itemObject.price = Number(productObject[0].price);
-            itemObject.size = size.value;
-
-            console.log('====================================');
-            console.log(itemObject);
-            console.log('====================================');
-            alert(`${itemObject.name} added!`);
-            cartTemplate(itemObject);
-
-            viewCart.push(itemObject);
-
-            console.log(viewCart);
-
-            var badge = document.querySelector('#cart-length');
-            badge.textContent = viewCart.length;
-
-            // STORING CART ITEMS IN LOCAL STORAGE
-            localStorage.setItem("cart", JSON.stringify(viewCart));
+            if (bodyFormInput !== null && !bodySelectOptionA.selected){
+                e.preventDefault();
+                var quantity = document.getElementById('quantity');
+                // console.log(quantity.value);
+    
+                var size = document.getElementById('inputSize');
+                // console.log(size.value);
+                var itemObject = {}
+                itemObject.image = productObject[0].url;
+                itemObject.quantity = Number(quantity.value);
+                itemObject.name = productObject[0].name;
+                itemObject.price = Number(productObject[0].price);
+                itemObject.size = size.value;
+    
+                // console.log('====================================');
+                // console.log(itemObject);
+                // console.log('====================================');
+                alert(`${itemObject.name} added to cart!`);
+                cartTemplate(itemObject);
+    
+                viewCart.push(itemObject);
+    
+                // console.log(viewCart);
+    
+                var badge = document.querySelector('#cart-length');
+                badge.textContent = viewCart.length;
+    
+                // STORING CART ITEMS IN LOCAL STORAGE
+                localStorage.setItem("cart", JSON.stringify(viewCart));
+            }else {
+                alert(`Please fill all required fields!`)
+            }
+           
 
         })
     }
@@ -388,7 +398,10 @@ $(document).ready(function () {
     var imgA3 = cardA3.childNodes[1]
     var imgA4 = cardA4.childNodes[1]
 
-    console.log(imgA3);
+    // console.log(imgA1);
+    // console.log(imgA2);
+    // console.log(imgA3);
+    // console.log(imgA4);
 
     viewModal(viewLinkA1, imgA1, 'A1');
     viewModal(viewLinkA2, imgA2, 'A2');
@@ -426,90 +439,5 @@ $(document).ready(function () {
     viewModal(viewLinkC2, imgC2, 'C2');
     viewModal(viewLinkC3, imgC3, 'C3');
     viewModal(viewLinkC4, imgC4, 'C4');
-
-    // Clearing Cart
-    // var clearCart = document.getElementById('clear-cart');
-    // clearCart.addEventListener('click', (e) => {
-    //     localStorage.removeItem('cart');
-    //     var badge = document.querySelector('#cart-length');
-    //     badge.textContent = 0;
-    // })
-
-
-
-    // var template = (parentElement, imgUrl, productName, productPrice) => {
-    //     var cardDiv = document.createElement('div');
-    //     var img = new Image(); // Create new img element
-    //     var linkA = document.createElement('a');
-    //     var linkB = document.createElement('a');
-    //     var iconDivA = document.createElement('div');
-    //     var iconDivB = document.createElement('div');
-    //     var cardBodyDiv = document.createElement('div');
-    //     var heading = document.createElement('h5');
-    //     var paragraph = document.createElement('p');
-    //     var iconA = document.createElement('i');
-    //     var iconB = document.createElement('i');
-
-    //     cardDiv.classList.add('card');
-    //     cardDiv.setAttribute('id', 'card');
-    //     linkA.setAttribute('id', 'cart-link');
-    //     linkB.setAttribute('id', 'view-link');
-    //     img.setAttribute('class', 'card-img-top');
-    //     iconDivA.classList.add('cart-icon', 'text-center');
-    //     iconDivB.classList.add('view-icon', 'text-center');
-    //     iconA.classList.add('fas', 'fa-shopping-cart');
-    //     iconB.classList.add('far', 'fa-eye');
-    //     cardBodyDiv.classList.add('card-body', 'text-center');
-    //     heading.classList.add('card-title');
-    //     paragraph.classList.add('card-text');
-
-    //     img.src = imgUrl;
-    //     heading.textContent = productName;
-    //     paragraph.textContent = productPrice;
-
-    //     iconDivA.appendChild(iconA);
-    //     iconDivB.appendChild(iconB);
-
-    //     linkA.appendChild(iconDivA);
-    //     linkB.appendChild(iconDivB);
-
-    //     cardBodyDiv.appendChild(heading);
-    //     cardBodyDiv.appendChild(paragraph);
-
-    //     cardDiv.appendChild(img);
-    //     cardDiv.appendChild(linkA);
-    //     cardDiv.appendChild(linkB);
-    //     cardDiv.appendChild(cardBodyDiv);
-
-    //     parentElement.appendChild(cardDiv);
-    // };
-
-    // // FOR CAROUSEL A (PRODUCT GALLERY)
-    // var carouselA = document.getElementById('carousel-A');
-    // var productGallery = product.filter(x => x.categoryB === 'ready-to-wear');
-    // // console.log(productGallery);
-    // for (let i = 0; i < productGallery.length; i++) {
-    //     template(carouselA, `${productGallery[i].url}`, `${productGallery[i].name}`, `$ ${productGallery[i].price}`);
-
-    // }
-
-    // console.log(carouselA);
-
-
-
-    // // FOR CAROUSEL B (PRODUCT GALLERY)
-    // var carouselB = document.getElementById('carousel-B');
-    // var productGallery = product.filter(x => x.categoryB === 'bridal');
-    // console.log(productGallery);
-    // for (let i = 0; i < productGallery.length; i++) {
-    //     template(carouselB, `${productGallery[i].url}`, `${productGallery[i].name}`, `$ ${productGallery[i].price}`);
-    // }
-    // // FOR CAROUSEL C (PRODUCT GALLERY)
-    // var carouselC = document.getElementById('carousel-C');
-    // var productGallery = product.filter(x => x.categoryB === 'bespoke');
-    // console.log(productGallery);
-    // for (let i = 0; i < productGallery.length; i++) {
-    //     template(carouselC, `${productGallery[i].url}`, `${productGallery[i].name}`, `$ ${productGallery[i].price}`);
-    // }
 
 })
