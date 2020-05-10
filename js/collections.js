@@ -39,7 +39,7 @@ $(document).ready(function () {
         image.src = `${item.image}`;
         textLink.href = '#';
         spanA.textContent = `${item.name}`;
-        spanB.textContext = `$${item.price}`;
+        spanB.textContext = `₦${item.price}`;
 
         divA.appendChild(image);
         textLink.appendChild(spanA);
@@ -190,7 +190,7 @@ $(document).ready(function () {
         bodyDescription.setAttribute('id', 'product-description');
         bodyDescription.textContent = `${productObject[0].description}`;
         bodyPrice.setAttribute('id', 'product-price');
-        bodyPrice.textContent = `$${productObject[0].price}`;
+        bodyPrice.textContent = `₦${productObject[0].price}`;
 
         bodyForm.setAttribute('class', 'product-specs');
         bodyForm.setAttribute('id', 'form');
