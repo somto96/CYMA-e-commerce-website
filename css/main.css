@@ -254,7 +254,8 @@ body {
 }
 
 .pre-header-items .btn-outline-primary,
-#cart-footer .btn-outline-primary{
+.clear-cart__btn.btn-outline-primary,
+.checkout-cart__btn.btn-outline-primary{
     color: #000;
     border-color: #fff;
     padding-top: 0px;
@@ -264,7 +265,8 @@ body {
 }
 
 .pre-header-items .btn-outline-primary:hover,
-#cart-footer .btn-outline-primary:hover{
+.clear-cart__btn.btn-outline-primary:hover,
+.checkout-cart__btn.btn-outline-primary:hover{
     color: #e6b03e;
     border-color: #fff;
     background-color: #fff;

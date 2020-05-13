@@ -62,7 +62,7 @@ $(document).ready(function () {
             cartTemplate(viewCart[i]);
         }
         // DISPLAYS NUMBER OF ITEMS IN CART
-        var badge = document.getElementById('cart-badge');
+        var badge = document.getElementById('cart-length');
         // console.log(badge);
         badge.textContent = viewCart.length;
         // console.log(viewCart.length);
@@ -107,7 +107,7 @@ $(document).ready(function () {
 
             // console.log(viewCart);
 
-            var badge = document.getElementById('cart-badge');
+            var badge = document.getElementById('cart-length');
             badge.textContent = viewCart.length;
 
             // STORING CART ITEMS IN LOCAL STORAGE
